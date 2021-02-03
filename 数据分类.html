@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SVG.js</title>
+		<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+		<!-- <script src="https://echarts.baidu.com/resource/echarts-liquidfill-latest/dist/echarts-liquidfill.min.js"></script> -->
+		<!-- <script src="./js/echarts-liquidfill.js"></script> -->
+
+	</head>
+	<body style="margin:0;padding:0">
+		<div id="myChartWhater" style="width: 479px;height:566px;"></div>
+		<!-- <div id="drawing"></div>
+		<div id="draw" style="margin-bottom: 20px;"></div> -->
+	</body>
+	<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('myChartWhater'));
+
+		//内容主体
+
+		var cw = document.body.clientHeight / 70;
+
+
+		var textStyle = {
+			fontSize: 1.2 * cw,
+			color: "rgba(255,255,255,1)",
+		}
+		var axisLabel = {
+			show: true,
+			textStyle: {
+				fontSize: cw,
+				color: "rgba(255,255,255,0.6)"
+			}
+		}
+		var axisLine = {
+			lineStyle: {
+				color: "rgba(169,213,255,0.15)",
+			}
+		}
+
+		var lineStyle = {
+			color: "rgba(169,213,255,0.15)",
+		}
+
+		var timeData = [
+			'2021/2/1',
+			'2021/2/2',
+			'2021/2/3',
+			'2021/2/4',
+			'2021/2/5',
+			'2021/2/6',
+			'2021/2/7',
+			'2021/2/8',
+			'2021/2/9',
+		]
+
+		timeData = timeData.map(function(str) {
+			return str.replace('2009/', '');
+		});
+
+		// 指定图表的配置项和数据
+		var option = {
+			backgroundColor: '#03143A',
+			title: {
+				
+				textStyle: textStyle,
+				show: true,
+				top: 0,
+				left: 0
+			},
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+					animation: false
+				}
+			},
+			
+			toolbox: {
+
+			},
+			axisPointer: {
+				link: {
+					xAxisIndex: 'all'
+				}
+			},
+			// dataZoom: [
+			//     {
+			//         show: true,
+			//         realtime: true,
+			//         start: 30,
+			//         end: 70,
+			//         xAxisIndex: [0, 1]
+			//     },
+			//     {
+			//         type: 'inside',
+			//         realtime: true,
+			//         start: 30,
+			//         end: 70,
+			//         xAxisIndex: [0, 1]
+			//     }
+			// ],
+			grid: [{
+					left: 50,
+					right: 50,
+					height: '10%'
+				}, {
+					left: 50,
+					right: 50,
+					top: '28%',
+					height: '10%'
+				},
+				{
+					left: 50,
+					right: 50,
+					top: '46%',
+					height: '10%'
+				},
+				{
+					left: 50,
+					right: 50,
+					top: '65%',
+					height: '10%'
+				},
+				{
+					left: 50,
+					right: 50,
+					top: '83%',
+					height: '10%'
+				}
+			],
+			xAxis: [{
+					gridIndex: 0,
+					type: 'category',
+					boundaryGap: false,
+					data: timeData,
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+				},
+				{
+					gridIndex: 1,
+					type: 'category',
+					boundaryGap: false,
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+					data: timeData,
+				},
+				{
+					gridIndex: 2,
+					type: 'category',
+					boundaryGap: false,
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+					data: timeData,
+				},
+				{
+					gridIndex: 3,
+					type: 'category',
+					boundaryGap: false,
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+					data: timeData,
+				},
+				{
+					gridIndex: 4,
+					type: 'category',
+					boundaryGap: false,
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+					data: timeData,
+				},
+
+			],
+			yAxis: [{
+					gridIndex: 0,
+					name: '设备（mb）',
+					// nameLocation:'end',
+					nameTextStyle: {
+						color: "rgba(255,255,255,0.8)",
+						fontSize: cw,
+						padding: [0, 0, -5, 0]
+					},
+					type: 'value',
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+					splitLine: {
+						show: true,
+						lineStyle: lineStyle,
+					},
+					axisTick: { //y轴刻度线
+						show: false
+					},
+				},
+				{
+					gridIndex: 1,
+					name: '行车（mb）',
+					nameTextStyle: {
+						color: "rgba(255,255,255,0.8)",
+						fontSize: cw,
+						padding: [0, 0, -5, 0]
+					},
+					type: 'value',
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+					splitLine: {
+						show: true,
+						lineStyle: lineStyle,
+					},
+					axisTick: { //y轴刻度线
+						show: false
+					},
+				},
+				{
+					gridIndex: 2,
+					name: '告警（mb）',
+					nameTextStyle: {
+						color: "rgba(255,255,255,0.8)",
+						fontSize: cw,
+						padding: [0, 0, -5, 0]
+					},
+					type: 'value',
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+					splitLine: {
+						show: true,
+						lineStyle: lineStyle,
+					},
+					axisTick: { //y轴刻度线
+						show: false
+					},
+				},
+				{
+					gridIndex: 3,
+					name: '客流（mb）',
+					nameTextStyle: {
+						color: "rgba(255,255,255,0.8)",
+						fontSize: cw,
+						padding: [0, 0, -5, 0]
+					},
+					type: 'value',
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+					splitLine: {
+						show: true,
+						lineStyle: lineStyle,
+					},
+					axisTick: { //y轴刻度线
+						show: false
+					},
+				},
+				{
+					gridIndex: 4,
+					name: '其他（mb）',
+					nameTextStyle: {
+						color: "rgba(255,255,255,0.8)",
+						fontSize: cw,
+						padding: [0, 0, -5, 0]
+					},
+					type: 'value',
+					axisLabel: axisLabel,
+					axisLine: axisLine,
+					splitLine: {
+						show: true,
+						lineStyle: lineStyle,
+					},
+					axisTick: { //y轴刻度线
+						show: false
+					},
+				}
+			],
+			series: [{
+					name: '设备',
+					type: 'line',
+					symbolSize: 0,
+					xAxisIndex: 0,
+					yAxisIndex: 0,
+					smooth: 0.5,
+					hoverAnimation: false,
+					color: "rgba(0,255,182,1)",
+					areaStyle: {
+						normal: {
+							color: {
+								type: 'linear',
+								x: 0,
+								y: 0,
+								x2: 0,
+								y2: 1,
+								colorStops: [{
+									offset: 0,
+									color: 'rgba(0,255,182,0.8)' // 0% 处的颜色
+								}, {
+									offset: 1,
+									color: 'rgba(0,255,182,0)' // 100% 处的颜色
+								}],
+								global: false // 缺省为 false
+							},
+						}
+					},
+					data: [
+						30, 50, 70, 40, 10, 60, 40, 70, 100
+					]
+				},
+				{
+					name: '行车',
+					type: 'line',
+					xAxisIndex: 1,
+					yAxisIndex: 1,
+					symbolSize: 0,
+					smooth: 0.5,
+					hoverAnimation: false,
+					color: "rgba(0,255,182,1)",
+					areaStyle: {
+						normal: {
+							color: {
+								type: 'linear',
+								x: 0,
+								y: 0,
+								x2: 0,
+								y2: 1,
+								colorStops: [{
+									offset: 0,
+									color: 'rgba(0,255,182,0.8)' // 0% 处的颜色
+								}, {
+									offset: 1,
+									color: 'rgba(0,255,182,0)' // 100% 处的颜色
+								}],
+								global: false // 缺省为 false
+							},
+						}
+					},
+					data: [
+						123, 43, 37, 49, 78, 60, 90, 101, 10
+					]
+				},
+				{
+					name: '告警',
+					type: 'line',
+					xAxisIndex: 2,
+					yAxisIndex: 2,
+					symbolSize: 0,
+					smooth: 0.5,
+					hoverAnimation: false,
+					color: "rgba(0,255,182,1)",
+					areaStyle: {
+						normal: {
+							color: {
+								type: 'linear',
+								x: 0,
+								y: 0,
+								x2: 0,
+								y2: 1,
+								colorStops: [{
+									offset: 0,
+									color: 'rgba(0,255,182,0.8)' // 0% 处的颜色
+								}, {
+									offset: 1,
+									color: 'rgba(0,255,182,0)' // 100% 处的颜色
+								}],
+								global: false // 缺省为 false
+							},
+						}
+					},
+					data: [
+						3, 2, 3, 4, 5, 6, 7, 7, 10
+					]
+				},
+				{
+					name: '客流',
+					type: 'line',
+					xAxisIndex: 3,
+					yAxisIndex: 3,
+					symbolSize: 0,
+					smooth: 0.5,
+					hoverAnimation: false,
+					color: "rgba(0,255,182,1)",
+					areaStyle: {
+						normal: {
+							color: {
+								type: 'linear',
+								x: 0,
+								y: 0,
+								x2: 0,
+								y2: 1,
+								colorStops: [{
+									offset: 0,
+									color: 'rgba(0,255,182,0.8)' // 0% 处的颜色
+								}, {
+									offset: 1,
+									color: 'rgba(0,255,182,0)' // 100% 处的颜色
+								}],
+								global: false // 缺省为 false
+							},
+						}
+					},
+					data: [
+						3, 4, 3, 4, 5, 6, 7, 8, 10
+					]
+				},
+				{
+					name: '其他',
+					type: 'line',
+					xAxisIndex: 4,
+					yAxisIndex: 4,
+					symbolSize: 0,
+					smooth: 0.5,
+					hoverAnimation: false,
+					color: "rgba(0,255,182,1)",
+					areaStyle: {
+						normal: {
+							color: {
+								type: 'linear',
+								x: 0,
+								y: 0,
+								x2: 0,
+								y2: 1,
+								colorStops: [{
+									offset: 0,
+									color: 'rgba(0,255,182,0.8)' // 0% 处的颜色
+								}, {
+									offset: 1,
+									color: 'rgba(0,255,182,0)' // 100% 处的颜色
+								}],
+								global: false // 缺省为 false
+							},
+						}
+					},
+					data: [
+						3, 4, 3, 4, 5, 6, 7, 8, 10
+					]
+				},
+			]
+		};
+		//内容主体
+		myChart.setOption(option);
+	</script>
+
+</html>
