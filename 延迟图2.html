@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SVG.js</title>
+		<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+		<!-- <script src="https://echarts.baidu.com/resource/echarts-liquidfill-latest/dist/echarts-liquidfill.min.js"></script> -->
+		<!-- <script src="./js/echarts-liquidfill.js"></script> -->
+
+	</head>
+	<body style="margin:0;padding:0">
+		<div id="myChartWhater" style="width: 489px;height:268px;"></div>
+		<!-- <div id="drawing"></div>
+		<div id="draw" style="margin-bottom: 20px;"></div> -->
+	</body>
+	<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('myChartWhater'));
+
+//内容主体
+		var xAxisData = [];
+var data1 = [];
+var data2 = [];
+for (var i = 0; i < 25; i++) {
+    xAxisData.push( i + ':00');
+    data1.push(0,44,40,33,25,17,7,0,4,13,21,29,35,39,42,44,44,43,40,37,33,28,23,19,18);
+    data2.push(50,47,42,36,28,20,10,1,7,16,24,32,38,42,45,47,47,46,43,40,36,31,26,22,0);
+}
+
+var option = {
+    legend: {
+        data: ['报警', '预警']
+    },
+    backgroundColor: "#051B4A",
+    toolbox: {
+
+        feature: {
+           
+            saveAsImage: {
+                pixelRatio: 2
+            }
+        }
+    },
+    tooltip: {},
+    xAxis: {
+        data: xAxisData,
+        
+        splitLine: {
+            show: false
+        }
+    },
+    yAxis: {
+    },
+    series: [
+        {
+        name: '报警',
+        type: 'bar',
+        data: data1,
+        emphasis: {
+            focus: 'series'
+        },
+        animationDelay: function (idx) {
+            return idx * 10;
+        }
+    }, 
+    {
+        name: '预警',
+        type: 'bar',
+        data: data2,
+        emphasis: {
+            focus: 'series'
+        },
+        animationDelay: function (idx) {
+            return idx * 100 + 1000;
+        }
+    }],
+    animationEasing: 'elasticOut',
+    animationDelayUpdate: function (idx) {
+        return idx * 5;
+    }
+};
+//内容主体
+		myChart.setOption(option);
+	</script>
+
+</html>
