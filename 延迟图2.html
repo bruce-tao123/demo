@@ -29,7 +29,7 @@ for (var i = 0; i < 25; i++) {
 
 var option = {
     legend: {
-        data: ['报警', '预警']
+        data: ['报警']
     },
     backgroundColor: "#051B4A",
     toolbox: {
@@ -61,17 +61,6 @@ var option = {
         },
         animationDelay: function (idx) {
             return idx * 10;
-        }
-    }, 
-    {
-        name: '预警',
-        type: 'bar',
-        data: data2,
-        emphasis: {
-            focus: 'series'
-        },
-        animationDelay: function (idx) {
-            return idx * 100 + 1000;
         }
     }],
     animationEasing: 'elasticOut',
