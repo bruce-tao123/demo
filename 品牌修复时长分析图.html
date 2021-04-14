@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SVG.js</title>
+		<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+		<!-- <script src="https://echarts.baidu.com/resource/echarts-liquidfill-latest/dist/echarts-liquidfill.min.js"></script> -->
+		<!-- <script src="./js/echarts-liquidfill.js"></script> -->
+
+	</head>
+	<body style="margin:0;padding:0">
+		<div id="myChartWhater" style="width:400px;height:400px;"></div>
+		<!-- <div id="drawing"></div>
+		<div id="draw" style="margin-bottom: 20px;"></div> -->
+	</body>
+	<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('myChartWhater'));
+
+		//内容主体
+
+		var data = [
+    [5, 10, 6],
+    [4, 10, 6],
+    [3, 6, 4],
+    [2, 5, 3.83],
+    [2, 4, 3],
+    [2, 4, 3.33],
+    [2, 4, 3.33],
+    [1, 4, 3],
+    [2, 3, 2.75],
+    [2, 3, 2.5],
+    
+];
+var cities = ['品牌1', '品牌2', '品牌3', '品牌4', '品牌5', '品牌6', '品牌7', '品牌8', '品牌9', '品牌10'];
+var barHeight = 0.1
+
+option = {
+    backgroundColor:'#F2F2EB',
+    legend: {
+        show: true,
+        data: ['修复时长', '均值']
+    },
+    grid: {
+        top: 100
+    },
+    angleAxis: {
+        type: 'category',
+        data: cities
+    },
+    tooltip: {
+        show: true,
+        formatter: function (params) {
+            var id = params.dataIndex;
+            return cities[id] + '<br>最低：' + data[id][0] + '<br>h'+ '<br>最高：' + data[id][1] + '<br>h' + '<br>平均：' + data[id][2] + '<br>h';
+        }
+    },
+    radiusAxis: {
+    },
+    polar: {
+    },
+    series: [{
+        type: 'bar',
+        itemStyle: {
+            color: 'transparent'
+        },
+        data: data.map(function (d) {
+            return d[0];
+        }),
+        coordinateSystem: 'polar',
+        stack: '最大最小值',
+        silent: true
+    }, {
+        type: 'bar',
+        data: data.map(function (d) {
+            return d[1] - d[0];
+        }),
+        coordinateSystem: 'polar',
+        name: '修复时长',
+        stack: '最大最小值'
+    }, {
+        type: 'bar',
+        itemStyle: {
+            color: 'transparent'
+        },
+        data: data.map(function (d) {
+            return d[2] - barHeight;
+        }),
+        coordinateSystem: 'polar',
+        stack: '均值',
+        silent: true,
+        z: 10
+    }, {
+        type: 'bar',
+        data: data.map(function (d) {
+            return barHeight * 2;
+        }),
+        coordinateSystem: 'polar',
+        name: '均值',
+        stack: '均值',
+        barGap: '-100%',
+        z: 10
+    }]
+};
+		//内容主体
+		myChart.setOption(option);
+	</script>
+
+</html>
