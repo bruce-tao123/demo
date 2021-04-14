@@ -15,7 +15,7 @@ var LINE_LENGTH = 10000;                    // 点之间连线长度(的平方)
 // 创建背景画布
 var cvs = document.createElement("canvas");
 cvs.width = 1920;
-cvs.height = 3000;
+cvs.height = 7000;
 
 document.body.appendChild(cvs);
 
@@ -131,7 +131,7 @@ function drawLine(p1, p2, deg) {
 //绘制每一帧
 function drawFrame() {
     cvs.width = 1920;
-    cvs.height =  3000;
+    cvs.height =  7000;
     ctx.fillStyle = BACKGROUND_COLOR;
     ctx.fillRect(0, 0, cvs.width, cvs.height);
 
