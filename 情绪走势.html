@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SVG.js</title>
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script> 
+		<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+		<script src="https://echarts.baidu.com/resource/echarts-liquidfill-latest/dist/echarts-liquidfill.min.js"></script> 
+		<script src="./js/echarts-liquidfill.js"></script>
+
+	</head>
+	<body style="margin:0;padding:0">
+		<div id="myChartWhater" style="width: 789px;height:434px;"></div>
+		<!-- <div id="drawing"></div>
+		<div id="draw" style="margin-bottom: 20px;"></div> -->
+	</body>
+	<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('myChartWhater'));
+
+//内容主体
+
+ option = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#6a7985'
+            }
+        }
+    },
+    legend: {
+        data: ['喜悦', '赞扬', '愤怒', '悲伤', '恐惧']
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            boundaryGap: false,
+            data: ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00', '12:00','14:00','16:00','18:00','20:00','22:00','24:00']
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value'
+        }
+    ],
+    series: [
+        {
+            name: '喜悦',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            },
+            smooth: true,
+            data: [120, 132, 101, 134, 90, 230, 210,110,123,101,134,221,98]
+        },
+        {
+            name: '赞扬',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            },
+              smooth: true,
+            data: [220, 182, 191, 234, 290, 330, 310,156,176,187,210,223,256]
+        },
+        {
+            name: '愤怒',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            },
+              smooth: true,
+            data: [150, 232, 201, 154, 190, 330, 410,145,234,154,231,222,321]
+        },
+        {
+            name: '悲伤',
+            type: 'line',
+            stack: '总量',
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            },
+              smooth: true,
+            data: [320, 332, 301, 334, 390, 330, 320,321,111,123,231,223,231]
+        },
+        {
+            name: '恐惧',
+            type: 'line',
+            stack: '总量',
+            label: {
+                show: true,
+                position: 'top'
+            },
+            areaStyle: {},
+            emphasis: {
+                focus: 'series'
+            },
+              smooth: true,
+            data: [420, 332, 201, 434, 390, 530, 620,778,821,666,765,234,555]
+        }
+    ]
+};
+//内容主体
+		myChart.setOption(option);
+	</script>
+
+</html>
