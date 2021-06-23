@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SVG.js</title>
+		<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+		<script src="https://echarts.baidu.com/resource/echarts-liquidfill-latest/dist/echarts-liquidfill.min.js"></script>
+		<!-- <script src="./js/echarts-liquidfill.js"></script> -->
+
+	</head>
+	<body style="margin:0;padding:0">
+		<div id="myChartWhater" style="width: 789px;height:434px;"></div>
+		<!-- <div id="drawing"></div>
+		<div id="draw" style="margin-bottom: 20px;"></div> -->
+	</body>
+	<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('myChartWhater'));
+
+//ÄÚÈÝÖ÷Ìå
+
+let index = 0;
+var colorList = ['#F06E68', '#6492ED', '#F4B858']
+function fun() {
+        var timer = setInterval(function() {
+         myChart.dispatchAction({
+            type: 'hideTip',
+            seriesIndex: 0,
+            dataIndex: index
+        });
+        // 显示提示框
+        myChart.dispatchAction({
+            type: 'showTip',
+            seriesIndex: 0,
+            dataIndex: index
+        });
+        // 取消高亮指定的数据图形
+        myChart.dispatchAction({
+            type: 'downplay',
+            seriesIndex: 0,
+            dataIndex: index == 0? 5 : index -1
+        });
+         myChart.dispatchAction({
+            type: 'highlight',
+            seriesIndex: 0,
+            dataIndex: index
+        });
+        index++;
+        if (index > 5) {
+            index = 0;
+        }
+    },3000)
+}
+    fun()
+setTimeout(function() {fun()}, 5000);
+option = {
+    title: {
+        text: '情感占比',
+        x: 'center',
+        y: 'center',
+        textStyle: {
+            fontSize: 20
+        }
+    },
+     toolbox: {
+        show: true,
+        feature: {
+            mark: {show: true},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    tooltip: {
+        trigger: 'item'
+    },
+    series: [{
+        type: 'pie',
+        center: ['50%', '50%'],
+        radius: ['24%', '45%'],
+        clockwise: true,
+        avoidLabelOverlap: true,
+        hoverOffset: 15,
+        itemStyle: {
+            normal: {
+                color: function(params) {
+                    return colorList[params.dataIndex]
+                }
+            }
+        },
+        label: {
+            show: true,
+            position: 'outside',
+            formatter: '{a|{b}：{d}%}\n{hr|}',
+            rich: {
+                hr: {
+                    backgroundColor: 't',
+                    borderRadius: 3,
+                    width: 3,
+                    height: 3,
+                    padding: [3, 3, 0, -12]
+                },
+                a: {
+                    padding: [-30, 15, -20, 15]
+                }
+            }
+        },
+        labelLine: {
+            normal: {
+                length: 20,
+                length2: 30,
+                lineStyle: {
+                    width: 1
+                }
+            }
+        },
+        data: [{
+            'name': '负面',
+            'value': 1.45
+        }, {
+            'name': '正性',
+            'value': 2.93
+        }, {
+            'name': '中面',
+            'value': 3.15
+        }
+        ],
+    }]
+};
+//ÄÚÈÝÖ÷Ìå
+		myChart.setOption(option);
+	</script>
+
+</html>
