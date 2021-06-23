@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SVG.js</title>
+		<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script> 
+		<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+		<script src="https://echarts.baidu.com/resource/echarts-liquidfill-latest/dist/echarts-liquidfill.min.js"></script> 
+		<script src="./js/echarts-liquidfill.js"></script>
+
+	</head>
+	<body style="margin:0;padding:0">
+		<div id="myChartWhater" style="width: 789px;height:434px;"></div>
+		<!-- <div id="drawing"></div>
+		<div id="draw" style="margin-bottom: 20px;"></div> -->
+	</body>
+	<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('myChartWhater'));
+
+//内容主体
+
+ option = {
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        top: '5%',
+        left: 'center'
+    },
+    series: [
+        {
+            //name: '访问来源',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '40',
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 1048, name: '恐惧'},
+                {value: 735, name: '悲伤'},
+                {value: 580, name: '愤怒'},
+                {value: 484, name: '厌恶'},
+                {value: 300, name: '喜欢'}
+            ]
+        }
+    ]
+};
+//内容主体
+		myChart.setOption(option);
+	</script>
+
+</html>
