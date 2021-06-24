@@ -1,0 +1,497 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SVG.js</title>
+		<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+		<script src="https://echarts.baidu.com/resource/echarts-liquidfill-latest/dist/echarts-liquidfill.min.js"></script>
+		<!-- <script src="./js/echarts-liquidfill.js"></script> -->
+
+	</head>
+	<body style="margin:0;padding:0">
+		<div id="myChartWhater" style="width: 789px;height:454px;"></div>
+		<!-- <div id="drawing"></div>
+		<div id="draw" style="margin-bottom: 20px;"></div> -->
+	</body>
+	<script type="text/javascript">
+		var myChart = echarts.init(document.getElementById('myChartWhater'));
+
+//ÄÚÈÝÖ÷Ìå
+
+
+option = {
+    calculable: true,
+    "tooltip": {
+        "trigger": "item",
+        "formatter": "{a}<br/>{b}:{c}条"
+    },
+    legend:{
+       data: ['社会', '财经', '体育', '时政', '教育', '娱乐','旅行','军事','科技'],
+        textStyle:{
+            color:'#ccc'
+        }
+    },
+    "calculable": true,
+    "series": [{
+        name: '半圆',
+        type: 'pie',
+        radius: ['0%', '5%'],
+        startAngle: -180,
+        hoverAnimation: false,
+        legendHoverLink: true,
+        label: {
+            normal: {
+                show: false
+            }
+        },
+        data: [{
+                value: '500',
+                name: '半圆',
+                label: {
+                    show: false
+                }
+            },
+            {
+                value: '500',
+                itemStyle: {
+                    normal: {
+                        color: 'transparent'
+                    }
+                }
+            }
+        ]
+    }, {
+        name: '第一条圆弧',
+        type: 'pie',
+        radius: ['9.8%', '10%'],
+        startAngle: -180,
+        hoverAnimation: false,
+        legendHoverLink: true,
+        label: {
+            normal: {
+                show: false
+            }
+        },
+        data: [{
+                value: '500',
+                name: '第一条圆弧',
+                label: {
+                    show: false
+                }
+            },
+            {
+                value: '500',
+                itemStyle: {
+                    normal: {
+                        color: 'transparent'
+                    }
+                }
+            }
+        ]
+    }, {
+        name: '第二条圆弧',
+        type: 'pie',
+        startAngle: -180,
+        hoverAnimation: false,
+        legendHoverLink: true,
+        radius: ['19.8%', '20%'],
+        label: {
+            normal: {
+                show: false
+            }
+        },
+        data: [{
+                value: '500',
+                name: '第二条圆弧',
+
+            },
+            {
+                value: '500',
+                itemStyle: {
+                    normal: {
+                        color: 'transparent'
+                    }
+                }
+            }
+        ]
+
+    }, {
+        name: '第三条圆弧',
+        type: 'pie',
+        startAngle: -180,
+        hoverAnimation: false,
+        legendHoverLink: true,
+        radius: ['29.8%', '30%'],
+        label: {
+            normal: {
+                show: false
+            }
+        },
+        data: [{
+                value: '500',
+                name: '第三条圆弧',
+
+            },
+            {
+                value: '500',
+                itemStyle: {
+                    normal: {
+                        color: 'transparent'
+                    }
+                }
+            }
+
+        ]
+    }, {
+        name: '第四条圆弧',
+        type: 'pie',
+        startAngle: -180,
+        hoverAnimation: false,
+        legendHoverLink: true,
+        radius: ['39.8%', '40%'],
+        label: {
+            normal: {
+                show: false
+            }
+        },
+        data: [{
+                value: '500',
+                name: '第四条圆弧',
+            },
+            {
+                value: '500',
+                itemStyle: {
+                    normal: {
+                        color: 'transparent'
+                    }
+                }
+            }
+        ]
+    }, {
+        name: '第五条圆弧',
+        type: 'pie',
+        startAngle: -180,
+        hoverAnimation: false,
+        legendHoverLink: true,
+        radius: ['49.8%', '50%'],
+        label: {
+            normal: {
+                show: false
+            }
+        },
+        data: [{
+                value: '500',
+                name: '第五条圆弧',
+
+            },
+            {
+                value: '500',
+                itemStyle: {
+                    normal: {
+                        color: 'transparent'
+                    }
+                }
+            }
+        ]
+    }, {
+        name: '第六条圆弧',
+        type: 'pie',
+        startAngle: -180,
+        hoverAnimation: false,
+        legendHoverLink: true,
+        radius: ['59.8%', '60%'],
+        label: {
+            normal: {
+                show: false
+            }
+        },
+        data: [{
+                value: '500',
+                name: '第六条圆弧',
+            },
+            {
+                value: '500',
+                itemStyle: {
+                    normal: {
+                        color: 'transparent'
+                    }
+                }
+            }
+        ]
+    }, {
+        "name": "行业类型",
+        "type": "pie",
+        "radius": [
+            37,
+            255
+        ],
+        "avoidLabelOverlap": false,
+        "startAngle": 0,
+        "center": [
+            "50.1%",
+            "50%"
+        ],
+        "roseType": "area",
+        "selectedMode": "single",
+        "label": {
+            "normal": {
+                "show": true,
+                "formatter": "{c}条",
+                position: 'inside',
+            },
+            "emphasis": {
+                "show": true
+            }
+        },
+        "labelLine": {
+            "normal": {
+                "show": false,
+            }
+        },
+        "data": [{
+                "value": 0,
+                "name": "",
+                label: {
+                    normal: {
+                        show: false
+                    }
+
+                }
+            },
+            {
+                "value": 0,
+                "name": "",
+                label: {
+                    normal: {
+                        show: false
+                    }
+
+                }
+            },
+            {
+                "value": 0,
+                "name": "",
+                label: {
+                    normal: {
+                        show: false
+                    }
+
+                }
+
+            },
+            {
+                "value": 0,
+                "name": "",
+                label: {
+                    normal: {
+                        show: false
+                    }
+
+                }
+            },
+            {
+                "value": 0,
+                "name": "",
+                label: {
+                    normal: {
+                        show: false
+                    }
+
+                }
+            },
+            {
+                "value": 0,
+                "name": "",
+                label: {
+                    normal: {
+                        show: false
+                    }
+
+                }
+
+            },
+            {
+                "value": 0,
+                "name": "",
+                label: {
+                    normal: {
+                        show: false
+                    }
+
+                }
+            },
+            {
+                "value": 0,
+                "name": "",
+                label: {
+                    normal: {
+                        show: false
+                    }
+
+                }
+            },
+            {
+                "value": 0,
+                "name": "",
+                label: {
+                    normal: {
+                        show: false
+                    }
+
+                }
+            }, {
+                "value": 1000,
+                "name": "社会",
+                 label:{
+                    normal:{
+                           rotate:170
+                           
+                    }
+                },
+                "itemStyle": {
+                    "normal": {
+                        "color": "#f845f1",
+                        borderWidth: 2,
+                        borderColor: "rgb(43, 51, 59)",
+                    }
+                }
+            },
+            {
+                "value": 1500,
+                "name": "财经",
+                 label:{
+                    normal:{
+                           rotate:150
+                    }
+                },
+                "itemStyle": {
+                    "normal": {
+                        "color": "#ad46f3",
+                        borderWidth: 2,
+                        borderColor: "rgb(43, 51, 59)",
+                    }
+                }
+            },
+            {
+                "value": 2000,
+                "name": "体育",
+                 label:{
+                    normal:{
+                           rotate:130
+                    }
+                },
+                "itemStyle": {
+                    "normal": {
+                        "color": "#5045f6",
+                        borderWidth: 2,
+                        borderColor: "rgb(43, 51, 59)",
+                    }
+                }
+            },
+            {
+                "value": 2500,
+                "name": "时政",
+                 label:{
+                    normal:{
+                           rotate:110
+                    }
+                },
+                "itemStyle": {
+                    "normal": {
+                        "color": "#4777f5",
+                        borderWidth: 2,
+                        borderColor: "rgb(43, 51, 59)",
+                    }
+                }
+            },
+            {
+                "value": 3000,
+                "name": "教育",
+                 label:{
+                    normal:{
+                           rotate:90
+                    }
+                },
+                "itemStyle": {
+                    "normal": {
+                        "color": "#44aff0",
+                        borderWidth: 2,
+                        borderColor: "rgb(43, 51, 59)",
+                    }
+                }
+            },
+            {
+                "value": 3500,
+                "name": "娱乐",
+                 label:{
+                    normal:{
+                           rotate:70
+                    }
+                },
+                "itemStyle": {
+                    "normal": {
+                        "color": "#45dbf7",
+                        borderWidth: 2,
+                        borderColor: "rgb(43, 51, 59)",
+                    }
+                }
+            },
+            {
+                "value": 4000,
+                "name": "旅行",
+                 label:{
+                    normal:{
+                           rotate:50
+                    }
+                },
+                "itemStyle": {
+                    "normal": {
+                        "color": "#f6d54a",
+                        borderWidth: 2,
+                        borderColor: "rgb(43, 51, 59)",
+                    }
+                }
+            },
+            {
+                "value": 4500,
+                "name": "军事",
+                 label:{
+                    normal:{
+                           rotate:30
+                    }
+                },
+                "itemStyle": {
+                    "normal": {
+                        "color": "#f69846",
+                        borderWidth: 2,
+                        borderColor: "rgb(43, 51, 59)",
+                    }
+                }
+            },
+            {
+                "value": 5000,
+                "name": "科技",
+                 label:{
+                    normal:{
+                           rotate:10
+                    }
+                },
+                "itemStyle": {
+                    "normal": {
+                        "color": "#ff4343",
+                        borderWidth: 2,
+                        borderColor: "rgb(43, 51, 59)",
+                    }
+                }
+            },
+
+        ]
+    }]
+};
+//ÄÚÈÝÖ÷Ìå
+		myChart.setOption(option);
+	</script>
+
+</html>
