@@ -33,12 +33,24 @@ data = data.map(function (item) {
 });
 
 option = {
+    backgroundColor:'#ccc',
+    toolbox: {
+        show: true,
+        feature: {
+            mark: {show: true},
+            // dataView: {show: true, readOnly: false},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
     tooltip: {
         position: 'top'
     },
     grid: {
         height: '80%',
-        top: '10%'
+        top: '8%',
+        width:'90%',
+        left:'3%'
     },
     xAxis: {
         type: 'category',
@@ -63,7 +75,7 @@ option = {
         max: 900,
         calculable: true,
         //orient: 'horizontal',
-        left: '90%',
+        left: '93%',
         bottom: '8%'
     },
     series: [{
