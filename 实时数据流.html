@@ -10,7 +10,7 @@
 
 	</head>
 	<body style="margin:0;padding:0">
-		<div id="myChartWhater" style="width: 577px;height:174px;"></div>
+		<div id="myChartWhater" style="width: 575px;height:324px;"></div>
 		<!-- <div id="drawing"></div>
 		<div id="draw" style="margin-bottom: 20px;"></div> -->
 	</body>
@@ -18,7 +18,7 @@
 		var myChart = echarts.init(document.getElementById('myChartWhater'));
 
 //内容主体
-		var min = 60;
+var min = 60;
 var max = 100;
 var date = (function() {
     var now = new Date();
@@ -41,7 +41,7 @@ var randomData = (function() {
 })();
 var option = {
     color: ['#00FFFF'],
-    backgroundColor: '#051B4A',
+    backgroundColor: '#042588',
     tooltip: {
         trigger: 'axis',
         axisPointer: { // 坐标轴指示器，坐标轴触发有效
